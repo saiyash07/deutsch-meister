@@ -3,14 +3,14 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
-// REPLACE WITH YOUR ACTUAL CONFIG FROM FIREBASE CONSOLE
 const firebaseConfig = {
-  apiKey: "REPLACE_WITH_YOUR_KEY",
-  authDomain: "deutsch-meister.firebaseapp.com",
-  projectId: "deutsch-meister",
-  storageBucket: "deutsch-meister.appspot.com",
-  messagingSenderId: "REPLACE_WITH_YOUR_ID",
-  appId: "REPLACE_WITH_YOUR_APP_ID"
+  apiKey: "AIzaSyBz4JDRPR6pH9SCYapTacfA-g8P7vRxQZ",
+  authDomain: "deutsch-meister-a2231.firebaseapp.com",
+  projectId: "deutsch-meister-a2231",
+  storageBucket: "deutsch-meister-a2231.firebasestorage.app",
+  messagingSenderId: "391742603037",
+  appId: "1:391742603037:web:0795148ee3b334228e6bf4",
+  measurementId: "G-W1YG9JYGP4"
 };
 
 const app = initializeApp(firebaseConfig);

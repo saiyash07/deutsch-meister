@@ -1,4 +1,4 @@
-// Gemini API integration hook
+// Gemini API integration hook - v1.0.1
 import { useState, useCallback } from 'react';
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';

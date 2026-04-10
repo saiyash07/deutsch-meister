@@ -28,7 +28,8 @@ export default function App() {
   const { user, loading, logout } = useAuth();
   const {
     progress, addXP, completeLesson, completeExercise,
-    toggleFavoriteWord, setApiKey, setDailyTarget,
+    toggleFavoriteWord, addReviewWord, removeReviewWord,
+    setApiKey, setDailyTarget,
     unlockAchievement, clearAllData,
   } = useProgress(user);
 

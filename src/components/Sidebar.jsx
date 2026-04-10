@@ -25,7 +25,7 @@ export default function Sidebar({ streak }) {
         <div className="sidebar-header">
           <NavLink to="/" className="sidebar-logo" onClick={() => setOpen(false)}>
             <div className="sidebar-logo-icon">🇩🇪</div>
-            <span className="sidebar-logo-text">Deutsch Meister</span>
+            <span className="sidebar-logo-text">Deutsch Meister <small style={{fontSize: '9px', opacity: 0.5}}>v1.2-FINAL</small></span>
           </NavLink>
         </div>
         <div className="sidebar-nav">

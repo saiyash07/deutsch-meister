@@ -2,7 +2,7 @@
 import { useState, useCallback } from 'react';
 
 const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
-const MODELS = ['gemini-2.5-flash', 'gemini-2.0-flash-lite', 'gemini-1.5-flash'];
+const MODELS = ['gemini-2.5-flash', 'gemini-2.0-flash-lite', 'gemini-2.0-flash'];
 
 async function tryFetch(url, options, retries = 2) {
   for (let i = 0; i <= retries; i++) {

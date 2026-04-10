@@ -1,6 +1,8 @@
-// Progress tracking hook using localStorage
-import { useState, useCallback, useEffect } from 'react';
+// Progress tracking hook using localStorage + Firebase Sync
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { updateStreak } from '../utils/streak';
+import { db } from '../firebase';
+import { doc, getDoc, setDoc, onSnapshot } from 'firebase/firestore';
 
 const STORAGE_KEY = 'deutsch_meister_progress';
 
@@ -25,13 +27,12 @@ const defaultProgress = {
   lessonsStarted: 0,
 };
 
-export function useProgress() {
+export function useProgress(user) {
   const [progress, setProgress] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Reset daily if different day
         const today = new Date().toISOString().split('T')[0];
         if (parsed.dailyDate !== today) {
           parsed.dailyCompleted = 0;
@@ -39,27 +40,75 @@ export function useProgress() {
         }
         return { ...defaultProgress, ...parsed };
       }
-    } catch (e) {
-      console.error('Error loading progress:', e);
-    }
+    } catch (e) { console.error('Error loading progress:', e); }
     return { ...defaultProgress, dailyDate: new Date().toISOString().split('T')[0] };
   });
 
+  const isSyncing = useRef(false);
+
+  // Sync from Firebase when logged in
   useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-    } catch (e) {
-      console.error('Error saving progress:', e);
+    if (!user) return;
+
+    const docRef = doc(db, 'users', user.uid);
+    
+    // Initial fetch
+    const fetchCloud = async () => {
+      isSyncing.current = true;
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        const cloudData = docSnap.data();
+        // Merge cloud with local (clound wins for core stats)
+        setProgress(prev => {
+          const merged = { ...prev, ...cloudData };
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+          return merged;
+        });
+      } else {
+        // First time user - push local to cloud
+        await setDoc(docRef, progress);
+      }
+      isSyncing.current = false;
+    };
+
+    fetchCloud();
+
+    // Listen for remote changes (e.g. login from another device)
+    const unsubscribe = onSnapshot(docRef, (doc) => {
+      if (!isSyncing.current && doc.exists()) {
+        const cloudData = doc.data();
+        setProgress(prev => ({ ...prev, ...cloudData }));
+      }
+    });
+
+    return unsubscribe;
+  }, [user]);
+
+  // Save to local and cloud
+  useEffect(() => {
+    const today = new Date().toISOString().split('T')[0];
+    const dataToSave = { ...progress, dailyDate: progress.dailyDate || today };
+    
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
+
+    if (user && !isSyncing.current) {
+      const saveToCloud = async () => {
+        try {
+          await setDoc(doc(db, 'users', user.uid), dataToSave, { merge: true });
+        } catch (e) {
+          console.error('Firestore save failed:', e);
+        }
+      };
+      
+      const timeout = setTimeout(saveToCloud, 1000); // Debounce
+      return () => clearTimeout(timeout);
     }
-  }, [progress]);
+  }, [progress, user]);
 
   const addXP = useCallback((amount) => {
     setProgress(prev => {
       const updated = updateStreak(prev);
-      return {
-        ...updated,
-        totalXP: updated.totalXP + amount,
-      };
+      return { ...updated, totalXP: updated.totalXP + amount };
     });
   }, []);
 
@@ -118,10 +167,6 @@ export function useProgress() {
     setProgress(prev => ({ ...prev, apiKey: key }));
   }, []);
 
-  const setChatHistory = useCallback((history) => {
-    setProgress(prev => ({ ...prev, chatHistory: history }));
-  }, []);
-
   const setDailyTarget = useCallback((target) => {
     setProgress(prev => ({ ...prev, dailyTarget: target }));
   }, []);
@@ -147,7 +192,6 @@ export function useProgress() {
     addReviewWord,
     removeReviewWord,
     setApiKey,
-    setChatHistory,
     setDailyTarget,
     unlockAchievement,
     clearAllData,

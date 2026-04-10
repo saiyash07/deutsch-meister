@@ -20,7 +20,7 @@ const ACHIEVEMENTS = [
   { id: 'level-10', icon: '👑', name: 'Champion', desc: 'Reach Level 10', check: (p) => getLevel(p.totalXP) >= 10 },
 ];
 
-export default function Profile({ progress, setApiKey, setDailyTarget, clearAllData }) {
+export default function Profile({ progress, setApiKey, setDailyTarget, clearAllData, user, logout }) {
   const [apiInput, setApiInput] = useState(progress.apiKey || '');
   const [showKey, setShowKey] = useState(false);
   const [confirmClear, setConfirmClear] = useState(false);
@@ -29,9 +29,7 @@ export default function Profile({ progress, setApiKey, setDailyTarget, clearAllD
   const xpInLevel = getXPInCurrentLevel(progress.totalXP);
   const levelPct = getLevelProgress(progress.totalXP);
 
-  const handleSaveKey = () => {
-    setApiKey(apiInput.trim());
-  };
+  const handleSaveKey = () => setApiKey(apiInput.trim());
 
   const handleClear = () => {
     if (confirmClear) {
@@ -46,21 +44,31 @@ export default function Profile({ progress, setApiKey, setDailyTarget, clearAllD
 
   return (
     <div className="animate-in">
-      <div className="page-header">
-        <h1 className="page-title">👤 Profile & Progress</h1>
-        <p className="page-subtitle">Track your German learning journey</p>
+      <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div>
+          <h1 className="page-title">👤 Profile & Progress</h1>
+          <p className="page-subtitle">Track your German learning journey</p>
+        </div>
+        <button className="btn btn-secondary btn-sm" onClick={logout} style={{ color: '#ef4444' }}>
+          Logout
+        </button>
       </div>
 
       {/* Profile Hero */}
       <div className="card" style={{ marginBottom: '24px' }}>
         <div className="profile-header">
-          <div className="profile-avatar">🇩🇪</div>
+          <div className="profile-avatar">{user?.photoURL ? <img src={user.photoURL} alt="Avatar" width="48" style={{borderRadius: '50%'}} /> : '🇩🇪'}</div>
           <div>
             <h2 style={{ fontSize: '24px', fontWeight: 800 }}>Level {level} — {getLevelTitle(level)}</h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>{progress.totalXP} total XP</p>
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>{user?.email || 'Student'}</p>
+              <span style={{ fontSize: '10px', padding: '2px 8px', borderRadius: '10px', background: 'rgba(34, 197, 94, 0.2)', color: '#22c55e', fontWeight: 'bold' }}>
+                ☁️ Cloud Synced
+              </span>
+            </div>
           </div>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '14px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '14px', marginTop: '16px' }}>
           <span>Level {level}</span>
           <span style={{ color: 'var(--text-muted)' }}>{xpInLevel}/{XP_PER_LEVEL} XP to Level {level + 1}</span>
         </div>

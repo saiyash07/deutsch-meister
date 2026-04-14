@@ -55,6 +55,8 @@ export default function Lesson({ progress, completeLesson, addXP }) {
     } else if (ex.type === 'order') {
       const clean = (s) => s.toLowerCase().trim().replace(/[.,!?;:'"]/g, '');
       isCorrect = clean(userAnswer) === clean(ex.answer);
+    } else if (ex.type === 'match') {
+      isCorrect = userAnswer === 'correct';
     }
 
     if (isCorrect) {

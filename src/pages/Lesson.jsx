@@ -156,8 +156,9 @@ export default function Lesson({ progress, completeLesson, addXP }) {
                     {item.description}
                   </div>
                   {item.audio && (
-                    <div style={{ display: 'flex', gap: '4px' }}>
+                    <div style={{ display: 'flex', gap: '8px' }}>
                       <PronunciationBtn text={item.audio} gender="male" size="sm" />
+                      <PronunciationBtn text={item.audio} gender="female" size="sm" />
                     </div>
                   )}
                 </div>

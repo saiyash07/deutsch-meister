@@ -28,22 +28,9 @@ export function useAI(apiKey) {
 
   // Dynamically find available models
   const getBestModel = useCallback(async () => {
-    try {
-      const res = await fetch(`${GEMINI_BASE}/models?key=${apiKey}`);
-      const data = await res.json();
-      const models = data.models || [];
-      // Prioritize 1.5 Flash as it has the most reliable free tier quota
-      const preferred = models.find(m => 
-        m.name.includes('gemini-1.5-flash') || 
-        m.name.includes('gemini-pro') ||
-        m.name.includes('gemini-1.0-pro')
-      );
-      if (preferred) return preferred.name.split('/').pop();
-      return 'gemini-1.5-flash'; // final fallback
-    } catch (e) {
-      return 'gemini-1.5-flash'; // fallback if list fails
-    }
-  }, [apiKey]);
+    // Force gemini-1.5-flash as it has the most reliable free-tier quota for everyone
+    return 'gemini-1.5-flash';
+  }, []);
 
   const chat = useCallback(async (messages, systemPrompt = '') => {
     if (!apiKey) return 'Please set your Gemini API key in the Profile page.';

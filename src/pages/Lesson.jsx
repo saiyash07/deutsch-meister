@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getLessonById } from '../data/curriculum';
 import { getExercises } from '../data/exercises';
+import { lessonContent } from '../data/lessonContent';
 import { XP_PER_EXERCISE, XP_LESSON_BONUS } from '../utils/xp';
 import { speakGerman } from '../utils/speech';
 import PronunciationBtn from '../components/PronunciationBtn';
@@ -11,7 +12,9 @@ export default function Lesson({ progress, completeLesson, addXP }) {
   const navigate = useNavigate();
   const lesson = getLessonById(lessonId);
   const exercises = getExercises(lessonId);
+  const content = lessonContent[lessonId];
 
+  const [isStudying, setIsStudying] = useState(!!content);
   const [current, setCurrent] = useState(0);
   const [hearts, setHearts] = useState(5);
   const [xpEarned, setXpEarned] = useState(0);
@@ -36,7 +39,7 @@ export default function Lesson({ progress, completeLesson, addXP }) {
   }
 
   const ex = exercises[current];
-  const progressPct = ((current) / exercises.length) * 100;
+  const progressPct = isStudying ? 0 : ((current) / exercises.length) * 100;
 
   const checkAnswer = (userAnswer) => {
     if (answered) return;
@@ -88,10 +91,10 @@ export default function Lesson({ progress, completeLesson, addXP }) {
 
   // Auto-play audio for listen exercises
   useEffect(() => {
-    if (ex?.type === 'listen' && ex.audio) {
+    if (!isStudying && ex?.type === 'listen' && ex.audio) {
       setTimeout(() => speakGerman(ex.audio), 500);
     }
-  }, [current]);
+  }, [current, isStudying]);
 
   if (finished) {
     const score = exercises.length > 0 ? Math.round((correct / exercises.length) * 100) : 0;
@@ -119,6 +122,59 @@ export default function Lesson({ progress, completeLesson, addXP }) {
       </div>
     );
   }
+
+  const renderStudyContent = () => {
+    if (!content) return (
+      <div style={{ textAlign: 'center', padding: '40px 20px' }}>
+        <div style={{ fontSize: '48px', marginBottom: '20px' }}>📖</div>
+        <h2 style={{ marginBottom: '12px' }}>{lesson.title}</h2>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: '32px' }}>Get ready to practice your German skills in this lesson.</p>
+        <button className="btn btn-primary btn-lg" onClick={() => setIsStudying(false)}>Start Quiz →</button>
+      </div>
+    );
+
+    return (
+      <div className="animate-in">
+        <div style={{ marginBottom: '24px', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '8px' }}>{content.title}</h2>
+          <p style={{ color: 'var(--text-secondary)' }}>{content.introduction}</p>
+        </div>
+
+        {content.sections.map((section, idx) => (
+          <div key={idx} className="study-section" style={{ marginBottom: '32px' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '16px', color: 'var(--blue)', borderBottom: '1px solid var(--border)', paddingBottom: '8px' }}>
+              {section.title}
+            </h3>
+            {section.introduction && <p style={{ marginBottom: '16px', fontSize: '14px' }}>{section.introduction}</p>}
+            <div className="study-grid" style={{ display: 'grid', gap: '12px' }}>
+              {section.items.map((item, i) => (
+                <div key={i} className="card" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px' }}>
+                  <div style={{ fontSize: '24px', fontWeight: 800, color: 'var(--green)', minWidth: '40px', textAlign: 'center' }}>
+                    {item.term}
+                  </div>
+                  <div style={{ flex: 1, fontSize: '15px' }}>
+                    {item.description}
+                  </div>
+                  {item.audio && (
+                    <div style={{ display: 'flex', gap: '4px' }}>
+                      <PronunciationBtn text={item.audio} gender="male" size="sm" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div style={{ textAlign: 'center', marginTop: '40px', padding: '20px', background: 'var(--bg-glass)', borderRadius: 'var(--radius-lg)' }}>
+          <h3 style={{ marginBottom: '12px' }}>Ready to test your knowledge?</h3>
+          <button className="btn btn-primary btn-lg" onClick={() => setIsStudying(false)} style={{ padding: '14px 40px', fontSize: '18px' }}>
+            Start Quiz →
+          </button>
+        </div>
+      </div>
+    );
+  };
 
   const renderExercise = () => {
     if (!ex) return null;
@@ -225,12 +281,6 @@ export default function Lesson({ progress, completeLesson, addXP }) {
         );
 
       case 'match': {
-        const allItems = [];
-        ex.pairs.forEach(([left, right]) => {
-          allItems.push({ text: left, side: 'left', pairId: left });
-          allItems.push({ text: right, side: 'right', pairId: left });
-        });
-        // Shuffle right side
         const leftItems = ex.pairs.map(p => p[0]);
         const rightItems = [...ex.pairs.map(p => p[1])].sort(() => Math.random() - 0.5);
 
@@ -346,54 +396,65 @@ export default function Lesson({ progress, completeLesson, addXP }) {
         <div className="progress-bar" style={{ flex: 1 }}>
           <div className="progress-fill" style={{ width: `${progressPct}%` }} />
         </div>
-        <div className="lesson-hearts">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <span key={i} style={{ opacity: i < hearts ? 1 : 0.2 }}>❤️</span>
-          ))}
-        </div>
-      </div>
-
-      {/* Exercise */}
-      <div className="exercise-card">
-        {renderExercise()}
-
-        {/* Feedback */}
-        {showFeedback && (
-          <div className={`exercise-feedback ${showFeedback}`}>
-            {showFeedback === 'correct' ? (
-              <>✅ Correct! +{XP_PER_EXERCISE} XP</>
-            ) : (
-              <>❌ Incorrect! The answer is: <strong>{ex.type === 'mcq' ? ex.options[ex.answer] : ex.answer}</strong></>
-            )}
+        {!isStudying && (
+          <div className="lesson-hearts">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <span key={i} style={{ opacity: i < hearts ? 1 : 0.2 }}>❤️</span>
+            ))}
           </div>
         )}
+      </div>
 
-        {/* Actions */}
-        <div className="exercise-actions">
-          {ex.type !== 'match' && !answered && (
-            <button
-              className="btn btn-primary"
-              disabled={!canCheck()}
-              onClick={() => {
-                if (ex.type === 'mcq') checkAnswer(selectedOption);
-                else if (ex.type === 'order') checkAnswer(orderWords.join(' '));
-                else checkAnswer(userInput);
-              }}
-            >
-              Check Answer
-            </button>
-          )}
-          {answered && (
-            <button className="btn btn-primary" onClick={nextExercise}>
-              {current + 1 >= exercises.length ? 'Finish Lesson' : 'Continue →'}
-            </button>
-          )}
+      {/* Content Area */}
+      {isStudying ? (
+        <div className="exercise-card">
+          {renderStudyContent()}
         </div>
-      </div>
+      ) : (
+        <div className="exercise-card">
+          {renderExercise()}
 
-      <div style={{ textAlign: 'center', marginTop: '16px', fontSize: '14px', color: 'var(--text-muted)' }}>
-        Exercise {current + 1} of {exercises.length} • +{xpEarned} XP earned
-      </div>
+          {/* Feedback */}
+          {showFeedback && (
+            <div className={`exercise-feedback ${showFeedback}`}>
+              {showFeedback === 'correct' ? (
+                <>✅ Correct! +{XP_PER_EXERCISE} XP</>
+              ) : (
+                <>❌ Incorrect! The answer is: <strong>{ex.type === 'mcq' ? ex.options[ex.answer] : ex.answer}</strong></>
+              )}
+            </div>
+          )}
+
+          {/* Actions */}
+          <div className="exercise-actions">
+            {ex.type !== 'match' && !answered && (
+              <button
+                className="btn btn-primary"
+                disabled={!canCheck()}
+                onClick={() => {
+                  if (ex.type === 'mcq') checkAnswer(selectedOption);
+                  else if (ex.type === 'order') checkAnswer(orderWords.join(' '));
+                  else checkAnswer(userInput);
+                }}
+              >
+                Check Answer
+              </button>
+            )}
+            {answered && (
+              <button className="btn btn-primary" onClick={nextExercise}>
+                {current + 1 >= exercises.length ? 'Finish Lesson' : 'Continue →'}
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Footer Info */}
+      {!isStudying && (
+        <div style={{ textAlign: 'center', marginTop: '16px', fontSize: '14px', color: 'var(--text-muted)' }}>
+          Exercise {current + 1} of {exercises.length} • +{xpEarned} XP earned
+        </div>
+      )}
     </div>
   );
 }

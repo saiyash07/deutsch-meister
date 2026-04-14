@@ -856,6 +856,14 @@ body {
   border-radius: var(--radius-md);
   text-align: center;
   cursor: pointer;
+  margin-bottom: 8px;
+  transition: all var(--transition-fast);
+  font-weight: 600;
+}
+
+.match-item:hover { border-color: var(--blue); }
+.match-item.selected { border-color: var(--blue); background: rgba(73,192,248,0.1); }
+.match-item.matched { opacity: 0; pointer-events: none; }
 
 /* Word ordering */
 .word-bank {

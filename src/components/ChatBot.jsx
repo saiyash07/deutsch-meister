@@ -1,16 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
 import { useAI } from '../hooks/useAI';
 
-const SYSTEM_PROMPT = `You are "Deutsch Meister Bot", a friendly, encouraging German language tutor. You help users learn German from A1 to C2 level. You can:
-- Answer German grammar questions with clear explanations
-- Translate words and phrases between German and English
-- Explain verb conjugations with tables
-- Practice conversation in German (adjusting to user level)
-- Quiz the user on vocabulary or grammar
-- Provide cultural context about German-speaking countries
-- Give pronunciation tips
+const SYSTEM_PROMPT = `You are "Deutsch Meister Bot", a private German tutor. 
+CRITICAL: Be extremely brief and concise. Answer in 1 short sentence if possible, maximum 2. No intro fluff like "That's an excellent question".
+Example:
+User: What is bike in German?
+Bot: Bike in German is **das Fahrrad** (plural: die Fahrräder).
 
-Always be encouraging and patient. Use emojis occasionally. When showing German text, always provide the English translation in parentheses. Format responses with markdown for readability.`;
+You help with:
+- Grammar, translations, conjugations, and culture.
+Always provide English translations in parentheses. Use markdown. Use emojis sparingly.`;
 
 const FAQ_BUTTONS = [
   { label: '🔤 German alphabet', msg: 'Teach me the German alphabet with pronunciation tips' },

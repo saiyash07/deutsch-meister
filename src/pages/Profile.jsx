@@ -24,12 +24,17 @@ export default function Profile({ progress, setApiKey, setDailyTarget, clearAllD
   const [apiInput, setApiInput] = useState(progress.apiKey || '');
   const [showKey, setShowKey] = useState(false);
   const [confirmClear, setConfirmClear] = useState(false);
+  const [saveStatus, setSaveStatus] = useState(false);
 
   const level = getLevel(progress.totalXP);
   const xpInLevel = getXPInCurrentLevel(progress.totalXP);
   const levelPct = getLevelProgress(progress.totalXP);
 
-  const handleSaveKey = () => setApiKey(apiInput.trim());
+  const handleSaveKey = () => {
+    setApiKey(apiInput.trim());
+    setSaveStatus(true);
+    setTimeout(() => setSaveStatus(false), 3000);
+  };
 
   const handleClear = () => {
     if (confirmClear) {
@@ -168,12 +173,20 @@ export default function Profile({ progress, setApiKey, setDailyTarget, clearAllD
               value={apiInput}
               onChange={e => setApiInput(e.target.value)}
               placeholder="Enter your Gemini API key..."
+              style={{ borderColor: saveStatus ? 'var(--green)' : '' }}
             />
             <button className="btn btn-secondary btn-sm" onClick={() => setShowKey(s => !s)}>
               {showKey ? '🙈' : '👁'}
             </button>
-            <button className="btn btn-primary btn-sm" onClick={handleSaveKey}>Save</button>
+            <button className="btn btn-primary btn-sm" onClick={handleSaveKey}>
+              {saveStatus ? '✅ Saved!' : 'Save'}
+            </button>
           </div>
+          {saveStatus && (
+            <p style={{ color: 'var(--green)', fontSize: '13px', marginTop: '8px', fontWeight: 600, animation: 'fadeIn 0.3s ease' }}>
+              ✓ API key has been saved
+            </p>
+          )}
         </div>
 
         <div className="divider" />

@@ -24,6 +24,46 @@ export const lessonContent = {
       }
     ]
   },
+  'a1-alph-3': {
+    title: 'German Letters: M - R',
+    introduction: 'Continuing through the alphabet. Pay close attention to the sound of "R"!',
+    sections: [
+      {
+        title: 'The Letters',
+        items: [
+          { term: 'M', description: 'Pronounced like "emm".', audio: 'M' },
+          { term: 'N', description: 'Pronounced like "enn".', audio: 'N' },
+          { term: 'O', description: 'Pronounced like "oh" (as in "boat").', audio: 'O' },
+          { term: 'P', description: 'Pronounced like "peh".', audio: 'P' },
+          { term: 'Q', description: 'Pronounced like "kuh". Almost always followed by "u" (pronounced "kv").', audio: 'Q' }
+        ]
+      },
+      {
+        title: 'The Letter R',
+        items: [
+          { term: 'R', description: 'Pronounced like "err". In German, it is often a "guttural" sound made in the back of the throat, similar to the French R.', audio: 'R' }
+        ]
+      }
+    ]
+  },
+  'a1-alph-4': {
+    title: 'German Letters: S - Z',
+    introduction: 'The final set of standard letters.',
+    sections: [
+      {
+        title: 'The Letters',
+        items: [
+          { term: 'S', description: 'Pronounced like "ess". When it starts a word followed by a vowel, it often sounds like "z".', audio: 'S' },
+          { term: 'T', description: 'Pronounced like "teh".', audio: 'T' },
+          { term: 'U', description: 'Pronounced like "uh" (as in "boot", but shorter).', audio: 'U' },
+          { term: 'V', description: 'Pronounced like "fau". It sounds like an English "F"!', audio: 'V' },
+          { term: 'W', description: 'Pronounced like "veh". It sounds like an English "V"!', audio: 'W' },
+          { term: 'X', description: 'Pronounced like "iks".', audio: 'X' },
+          { term: 'Y', description: 'Pronounced "ypsilon". Usually sounds like a mix between "ee" and "oo".', audio: 'Y' }
+        ]
+      }
+    ]
+  },
   'a1-alph-2': {
     title: 'German Letters: G - L',
     introduction: 'Moving on to the next set of consonants and vowels.',

@@ -1037,12 +1037,15 @@ body {
 
 /* Writing page */
 .upload-zone {
+  display: block;
+  width: 100%;
   border: 2px dashed var(--border);
   border-radius: var(--radius-lg);
   padding: 48px;
   text-align: center;
   cursor: pointer;
   transition: all var(--transition-normal);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .upload-zone:hover {

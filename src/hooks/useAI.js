@@ -32,12 +32,16 @@ export function useAI(apiKey) {
       const res = await fetch(`${GEMINI_BASE}/models?key=${apiKey}`);
       const data = await res.json();
       const models = data.models || [];
-      // Pick first flash or pro model
-      const preferred = models.find(m => m.name.includes('gemini-2.0-flash') || m.name.includes('gemini-1.5-flash') || m.name.includes('gemini-flash-latest'));
+      // Prioritize 1.5 Flash as it has the most reliable free tier quota
+      const preferred = models.find(m => 
+        m.name.includes('gemini-1.5-flash') || 
+        m.name.includes('gemini-pro') ||
+        m.name.includes('gemini-1.0-pro')
+      );
       if (preferred) return preferred.name.split('/').pop();
-      return 'gemini-1.5-flash-latest'; // final fallback
+      return 'gemini-1.5-flash'; // final fallback
     } catch (e) {
-      return 'gemini-1.5-flash-latest'; // fallback if list fails
+      return 'gemini-1.5-flash'; // fallback if list fails
     }
   }, [apiKey]);
 

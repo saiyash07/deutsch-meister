@@ -73,8 +73,7 @@ Please analyze the handwritten text in this image and provide feedback on:
 4. **Handwriting quality** — Are the German-specific characters (ä, ö, ü, ß) written clearly?
 5. **Score** — Give a score out of 100.
 
-If you cannot read the handwriting or if the image doesn't contain relevant text, mention that.
-Provide specific corrections and encouragement. Format with markdown.`;
+Provide your entire analysis, corrections, and encouragement in English. Format with markdown.`;
 
     const result = await analyzeImage(image, prompt);
     setFeedback(result);

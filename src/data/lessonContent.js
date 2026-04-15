@@ -170,6 +170,7 @@ export const lessonContent = {
         ]
       }
     ]
+  },
   'a1-greet-2': {
     title: 'Self-Introduction: My Name',
     introduction: 'In German, there are two main ways to tell someone your name. Let\'s learn both!',
@@ -262,6 +263,7 @@ export const lessonContent = {
         ]
       }
     ]
+  },
   'a1-verb-1': {
     title: 'The Verb "Sein" (To Be)',
     introduction: 'This is the most important verb in German! It is irregular, so you must memorize it.',

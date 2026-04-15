@@ -374,5 +374,218 @@ export const lessonContent = {
         ]
       }
     ]
+  },
+  'a1-time-2': {
+    title: 'Months & Seasons',
+    introduction: 'Learn the twelve months and the four seasons in German.',
+    sections: [
+      {
+        title: 'The Seasons (Die Jahreszeiten)',
+        items: [
+          { term: 'der Frühling', description: 'Spring', audio: 'der Frühling' },
+          { term: 'der Sommer', description: 'Summer', audio: 'der Sommer' },
+          { term: 'der Herbst', description: 'Autumn / Fall', audio: 'der Herbst' },
+          { term: 'der Winter', description: 'Winter', audio: 'der Winter' }
+        ]
+      },
+      {
+        title: 'The 12 Months',
+        items: [
+          { term: 'Januar / Februar', description: 'January / February', audio: 'Januar Februar' },
+          { term: 'März / April', description: 'March / April', audio: 'März April' },
+          { term: 'Mai / Juni', description: 'May / June', audio: 'Mai Juni' },
+          { term: 'Juli / August', description: 'July / August', audio: 'Juli August' },
+          { term: 'September / Oktober', description: 'September / October', audio: 'September Oktober' },
+          { term: 'November / Dezember', description: 'November / December', audio: 'November Dezember' }
+        ]
+      }
+    ]
+  },
+  'a1-time-3': {
+    title: 'Telling Time (Uhrzeit)',
+    introduction: 'German has two ways to tell time: Official (24h) and Unofficial (12h).',
+    sections: [
+      {
+        title: 'Official Time (24h)',
+        introduction: 'Used for TV, radio, and schedules. Very simple: [Hour] Uhr [Minutes].',
+        items: [
+          { term: 'Es ist acht Uhr.', description: 'It is 8:00.', audio: 'Es ist acht Uhr' },
+          { term: 'Es ist acht Uhr zehn.', description: 'It is 8:10.', audio: 'Es ist acht Uhr zehn' }
+        ]
+      },
+      {
+        title: 'Unofficial (The "German" Way)',
+        introduction: 'Used in conversation. Pay attention to "halb" (HALF TO) and "viertel" (quarter).',
+        items: [
+          { term: 'viertel nach acht', description: '8:15 (Quarter past 8)', audio: 'viertel nach acht' },
+          { term: 'viertel vor acht', description: '7:45 (Quarter to 8)', audio: 'viertel vor acht' },
+          { term: 'halb neun', description: '8:30 (HALF TO nine)', audio: 'halb neun' },
+          { term: 'zehn vor neun', description: '8:50 (Ten to 9)', audio: 'zehn vor neun' }
+        ]
+      }
+    ]
+  },
+  'a1-art-3': {
+    title: 'Plural Formation',
+    introduction: 'In German, there are many ways to form plurals. Here are the most common patterns.',
+    sections: [
+      {
+        title: 'Common Endings',
+        items: [
+          { term: '-e', description: 'Often masculine (der Tisch -> die Tische).', audio: 'die Tische' },
+          { term: '-n / -en', description: 'Often feminine (die Frau -> die Frauen).', audio: 'die Frauen' },
+          { term: '-er', description: 'Often neuter (das Kind -> die Kinder).', audio: 'die Kinder' },
+          { term: '-s', description: 'Foreign words (das Auto -> die Autos).', audio: 'die Autos' }
+        ]
+      }
+    ]
+  },
+  'a1-verb-3': {
+    title: 'Regular Verbs (Präsens)',
+    introduction: 'Most German verbs follow a standard pattern. You take the "stem" and add an ending.',
+    sections: [
+      {
+        title: 'The "Lernen" Pattern',
+        items: [
+          { term: 'ich lern-e', description: 'I learn', audio: 'ich lerne' },
+          { term: 'du lern-st', description: 'you learn', audio: 'du lernst' },
+          { term: 'er/sie/es lern-t', description: 'he/she/it learns', audio: 'er lernt' },
+          { term: 'wir lern-en', description: 'we learn', audio: 'wir lernen' },
+          { term: 'ihr lern-t', description: 'you all learn', audio: 'ihr lernt' },
+          { term: 'Sie lern-en', description: 'You learn (formal)', audio: 'Sie lernen' }
+        ]
+      }
+    ]
+  },
+  'a1-fam-2': {
+    title: 'Describing People',
+    introduction: 'Learn how to describe your friends and family using basic adjectives.',
+    sections: [
+      {
+        title: 'Common Adjectives',
+        items: [
+          { term: 'alt / jung', description: 'Old / Young', audio: 'alt jung' },
+          { term: 'groß / klein', description: 'Tall / Small', audio: 'groß klein' },
+          { term: 'nett', description: 'Nice', audio: 'nett' },
+          { term: 'lustig', description: 'Funny', audio: 'lustig' }
+        ]
+      }
+    ]
+  },
+  'a1-food-1': {
+    title: 'Fruits & Vegetables',
+    introduction: 'Eating healthy in German! Pay attention to the articles.',
+    sections: [
+      {
+        title: 'Obst (Fruit)',
+        items: [
+          { term: 'der Apfel', description: 'Apple', audio: 'der Apfel' },
+          { term: 'die Banane', description: 'Banana', audio: 'die Banane' },
+          { term: 'die Orange', description: 'Orange', audio: 'die Orange' }
+        ]
+      },
+      {
+        title: 'Gemüse (Vegetables)',
+        items: [
+          { term: 'die Kartoffel', description: 'Potato', audio: 'die Kartoffel' },
+          { term: 'die Tomate', description: 'Tomato', audio: 'die Tomate' },
+          { term: 'die Karotte', description: 'Carrot', audio: 'die Karotte' }
+        ]
+      }
+    ]
+  },
+  'a1-food-2': {
+    title: 'Drinks (Getränke)',
+    introduction: 'What would you like to drink?',
+    sections: [
+      {
+        title: 'Common Drinks',
+        items: [
+          { term: 'das Wasser', description: 'Water', audio: 'das Wasser' },
+          { term: 'der Kaffee', description: 'Coffee', audio: 'der Kaffee' },
+          { term: 'der Tee', description: 'Tea', audio: 'der Tee' },
+          { term: 'der Saft', description: 'Juice', audio: 'der Saft' },
+          { term: 'die Milch', description: 'Milk', audio: 'die Milch' },
+          { term: 'das Bier', description: 'Beer', audio: 'das Bier' }
+        ]
+      }
+    ]
+  },
+  'a1-food-3': {
+    title: 'At the Restaurant',
+    introduction: 'Useful phrases for ordering food like a local.',
+    sections: [
+      {
+        title: 'Ordering',
+        items: [
+          { term: 'Die Karte, bitte.', description: 'The menu, please.', audio: 'Die Karte bitte' },
+          { term: 'Ich möchte...', description: 'I would like...', audio: 'Ich möchte' },
+          { term: 'Ein Wasser, bitte.', description: 'A water, please.', audio: 'Ein Wasser bitte' },
+          { term: 'Die Rechnung, bitte.', description: 'The bill, please.', audio: 'Die Rechnung bitte' }
+        ]
+      }
+    ]
+  },
+  'a1-col-2': {
+    title: 'Describing Things',
+    introduction: 'Use colors and sizes to describe objects around you.',
+    sections: [
+      {
+        title: 'Examples',
+        items: [
+          { term: 'Das Auto ist rot.', description: 'The car is red.', audio: 'Das Auto ist rot' },
+          { term: 'Das Haus ist groß.', description: 'The house is big.', audio: 'Das Haus ist groß' },
+          { term: 'Der Tisch ist klein.', description: 'The table is small.', audio: 'Der Tisch ist klein' }
+        ]
+      }
+    ]
+  },
+  'a1-sent-1': {
+    title: 'Word Order (Satzbau)',
+    introduction: 'In German statements, the verb ALWAYS takes the second position!',
+    sections: [
+      {
+        title: 'The Verb is Second',
+        items: [
+          { term: 'Ich lerne heute.', description: 'I learn today. (Verb "lerne" is 2nd)', audio: 'Ich lerne heute' },
+          { term: 'Heute lerne ich.', description: 'Today learn I. (Verb "lerne" is STILL 2nd!)', audio: 'Heute lerne ich' }
+        ]
+      }
+    ]
+  },
+  'a1-sent-2': {
+    title: 'Questions (Fragen)',
+    introduction: 'There are two types of questions: Yes/No questions and W-Questions.',
+    sections: [
+      {
+        title: 'W-Questions',
+        items: [
+          { term: 'Was? / Wer?', description: 'What? / Who?', audio: 'Was Wer' },
+          { term: 'Wo? / Woher?', description: 'Where? / Where from?', audio: 'Wo Woher' },
+          { term: 'Warum? / Wie?', description: 'Why? / How?', audio: 'Warum Wie' }
+        ]
+      },
+      {
+        title: 'Yes/No Questions',
+        introduction: 'The verb moves to the FIRST position.',
+        items: [
+          { term: 'Lernst du?', description: 'Are you learning?', audio: 'Lernst du' },
+          { term: 'Kommst du?', description: 'Are you coming?', audio: 'Kommst du' }
+        ]
+      }
+    ]
+  },
+  'a1-sent-3': {
+    title: 'Negation (nicht & kein)',
+    introduction: 'How to say "no" or "not" in German.',
+    sections: [
+      {
+        title: 'Nicht vs. Kein',
+        items: [
+          { term: 'nicht', description: 'Used for verbs and adjectives (I am NOT tall).', audio: 'nicht' },
+          { term: 'kein', description: 'Used for nouns with "a" or no article (I have NO dog).', audio: 'kein' }
+        ]
+      }
+    ]
   }
 };

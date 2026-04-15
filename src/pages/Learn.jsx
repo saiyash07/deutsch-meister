@@ -4,12 +4,22 @@ import { curriculum, getModuleProgress, isModuleUnlocked } from '../data/curricu
 
 export default function Learn({ progress }) {
   const [expandedModule, setExpandedModule] = useState(null);
+  const [teacherMode, setTeacherMode] = useState(false);
 
   return (
     <div className="animate-in">
-      <div className="page-header">
-        <h1 className="page-title">📚 Learn German</h1>
-        <p className="page-subtitle">Master German from A1 beginner to C2 mastery</p>
+      <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div>
+          <h1 className="page-title">📚 Learn German</h1>
+          <p className="page-subtitle">Master German from A1 beginner to C2 mastery</p>
+        </div>
+        <button 
+          className={`btn btn-sm ${teacherMode ? 'btn-primary' : 'btn-secondary'}`}
+          onClick={() => setTeacherMode(!teacherMode)}
+          style={{ height: 'fit-content' }}
+        >
+          {teacherMode ? '👨‍🏫 Teacher Mode: ON' : '👨‍🏫 Teacher Mode: OFF'}
+        </button>
       </div>
 
       {curriculum.map((level) => {
@@ -37,7 +47,7 @@ export default function Learn({ progress }) {
 
             <div className="grid-3">
               {level.modules.map((mod) => {
-                const unlocked = isModuleUnlocked(mod.id, progress.completedLessons);
+                const unlocked = teacherMode || isModuleUnlocked(mod.id, progress.completedLessons);
                 const { percent, done, total } = getModuleProgress(mod.id, progress.completedLessons);
 
                 return (

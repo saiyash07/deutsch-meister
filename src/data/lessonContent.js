@@ -170,5 +170,162 @@ export const lessonContent = {
         ]
       }
     ]
+  'a1-greet-2': {
+    title: 'Self-Introduction: My Name',
+    introduction: 'In German, there are two main ways to tell someone your name. Let\'s learn both!',
+    sections: [
+      {
+        title: 'Asking & Telling Names',
+        items: [
+          { term: 'Wie heißen Sie?', description: 'What is your name? (Formal)', audio: 'Wie heißen Sie' },
+          { term: 'Ich heiße...', description: 'My name is... (Literal: I am called...)', audio: 'Ich heiße' },
+          { term: 'Wer bist du?', description: 'Who are you? (Informal)', audio: 'Wer bist du' },
+          { term: 'Ich bin...', description: 'I am...', audio: 'Ich bin' },
+          { term: 'Mein Name ist...', description: 'My name is...', audio: 'Mein Name ist' }
+        ]
+      }
+    ]
+  },
+  'a1-greet-3': {
+    title: 'Origins: Where are you from?',
+    introduction: 'Learn how to talk about your country and origin.',
+    sections: [
+      {
+        title: 'Coming from...',
+        items: [
+          { term: 'Woher kommen Sie?', description: 'Where do you come from? (Formal)', audio: 'Woher kommen Sie' },
+          { term: 'Ich komme aus...', description: 'I come from...', audio: 'Ich komme aus' },
+          { term: 'Indien', description: 'India', audio: 'Indien' },
+          { term: 'Deutschland', description: 'Germany', audio: 'Deutschland' },
+          { term: 'USA', description: 'USA (Pronounced: Oo-Ess-Ah)', audio: 'USA' }
+        ]
+      }
+    ]
+  },
+  'a1-greet-4': {
+    title: 'How are you?',
+    introduction: 'Small talk is part of every greeting. Here is how to ask and answer!',
+    sections: [
+      {
+        title: 'How is it going?',
+        items: [
+          { term: 'Wie geht es Ihnen?', description: 'How are you? (Formal)', audio: 'Wie geht es Ihnen' },
+          { term: 'Wie geht\'s?', description: 'How\'s it going? (Informal)', audio: 'Wie gehts' },
+          { term: 'Gut, danke.', description: 'Good, thanks.', audio: 'Gut danke' },
+          { term: 'Sehr gut.', description: 'Very good.', audio: 'Sehr gut' },
+          { term: 'Nicht so gut.', description: 'Not so good.', audio: 'Nicht so gut' },
+          { term: 'Und Ihnen?', description: 'And you? (Formal response)', audio: 'Und Ihnen' }
+        ]
+      }
+    ]
+  },
+  'a1-num-2': {
+    title: 'Numbers: 11 - 20',
+    introduction: 'Numbers 11 and 12 are unique, but 13-19 follow a simple pattern!',
+    sections: [
+      {
+        title: '11 and 12',
+        items: [
+          { term: 'elf', description: 'Eleven (11)', audio: 'elf' },
+          { term: 'zwölf', description: 'Twelve (12)', audio: 'zwölf' }
+        ]
+      },
+      {
+        title: 'The "zehn" Pattern',
+        items: [
+          { term: 'dreizehn', description: 'Thirteen (3+10)', audio: 'dreizehn' },
+          { term: 'vierzehn', description: 'Fourteen (4+10)', audio: 'vierzehn' },
+          { term: 'fünfzehn', description: 'Fifteen (5+10)', audio: 'fünfzehn' },
+          { term: 'sechzehn', description: 'Sixteen (Note: dropped "s" from sechs)', audio: 'sechzehn' },
+          { term: 'siebzehn', description: 'Seventeen (Note: dropped "en" from sieben)', audio: 'siebzehn' },
+          { term: 'zwanzig', description: 'Twenty (20)', audio: 'zwanzig' }
+        ]
+      }
+    ]
+  },
+  'a1-art-2': {
+    title: 'Noun Genders & Rules',
+    introduction: 'While some genders seem random, there are certain endings that give them away!',
+    sections: [
+      {
+        title: 'Masculine (der) Endings',
+        items: [
+          { term: '-er', description: 'Nouns ending in -er are often masculine (e.g., der Lehrer).', audio: 'der Lehrer' },
+          { term: '-ismus', description: 'English -ism words (e.g., der Optimismus).', audio: 'der Optimismus' }
+        ]
+      },
+      {
+        title: 'Feminine (die) Endings',
+        items: [
+          { term: '-ung', description: 'Nouns ending in -ung are ALWAYS feminine (e.g., die Übung).', audio: 'die Übung' },
+          { term: '-heit / -keit', description: 'Nouns like die Freiheit (freedom).', audio: 'die Freiheit' }
+        ]
+      }
+    ]
+  'a1-verb-1': {
+    title: 'The Verb "Sein" (To Be)',
+    introduction: 'This is the most important verb in German! It is irregular, so you must memorize it.',
+    sections: [
+      {
+        title: 'Conjugation',
+        items: [
+          { term: 'ich bin', description: 'I am', audio: 'ich bin' },
+          { term: 'du bist', description: 'you are (informal)', audio: 'du bist' },
+          { term: 'er/sie/es ist', description: 'he/she/it is', audio: 'er sie es ist' },
+          { term: 'wir sind', description: 'we are', audio: 'wir sind' },
+          { term: 'ihr seid', description: 'you all are', audio: 'ihr seid' },
+          { term: 'Sie sind', description: 'You are (formal)', audio: 'Sie sind' }
+        ]
+      }
+    ]
+  },
+  'a1-verb-2': {
+    title: 'The Verb "Haben" (To Have)',
+    introduction: 'The second most important verb. Like "sein", it has some unique forms!',
+    sections: [
+      {
+        title: 'Conjugation',
+        items: [
+          { term: 'ich habe', description: 'I have', audio: 'ich habe' },
+          { term: 'du hast', description: 'you have (informal)', audio: 'du hast' },
+          { term: 'er/sie/es hat', description: 'he/she/it has', audio: 'er sie es hat' },
+          { term: 'wir haben', description: 'we have', audio: 'wir haben' },
+          { term: 'Sie haben', description: 'You have (formal)', audio: 'Sie haben' }
+        ]
+      }
+    ]
+  },
+  'a1-fam-1': {
+    title: 'Family Members',
+    introduction: 'Let\'s learn how to talk about your family!',
+    sections: [
+      {
+        title: 'Close Family',
+        items: [
+          { term: 'die Mutter / Mama', description: 'Mother / Mom', audio: 'die Mutter' },
+          { term: 'der Vater / Papa', description: 'Father / Dad', audio: 'der Vater' },
+          { term: 'der Bruder', description: 'Brother', audio: 'der Bruder' },
+          { term: 'die Schwester', description: 'Sister', audio: 'die Schwester' },
+          { term: 'das Kind', description: 'Child', audio: 'das Kind' }
+        ]
+      }
+    ]
+  },
+  'a1-col-1': {
+    title: 'Basic Colors',
+    introduction: 'Adding color to your German vocabulary!',
+    sections: [
+      {
+        title: 'The Rainbow',
+        items: [
+          { term: 'rot', description: 'Red', audio: 'rot' },
+          { term: 'blau', description: 'Blue', audio: 'blau' },
+          { term: 'grün', description: 'Green', audio: 'grün' },
+          { term: 'gelb', description: 'Yellow', audio: 'gelb' },
+          { term: 'schwarz', description: 'Black', audio: 'schwarz' },
+          { term: 'weiß', description: 'White', audio: 'weiß' }
+        ]
+      }
+    ]
   }
 };

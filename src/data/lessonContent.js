@@ -329,5 +329,50 @@ export const lessonContent = {
         ]
       }
     ]
+  },
+  'a1-num-3': {
+    title: 'Numbers: 21 - 100',
+    introduction: 'In German, for numbers above 20, we say the "ones" place first, then the "tens" place, joined by "und" (and).',
+    sections: [
+      {
+        title: 'The Pattern (Ones + und + Tens)',
+        items: [
+          { term: 'einundzwanzig', description: '21 (Literally: one and twenty)', audio: 'einundzwanzig' },
+          { term: 'zweiundzwanzig', description: '22 (Literally: two and twenty)', audio: 'zweiundzwanzig' },
+          { term: 'dreiunddreißig', description: '33 (three and thirty)', audio: 'dreiunddreißig' }
+        ]
+      },
+      {
+        title: 'The Tens',
+        items: [
+          { term: 'dreißig', description: 'Thirty (30)', audio: 'dreißig' },
+          { term: 'vierzig', description: 'Forty (40)', audio: 'vierzig' },
+          { term: 'fünfzig', description: 'Fifty (50)', audio: 'fünfzig' },
+          { term: 'sechzig', description: 'Sixty (60)', audio: 'sechzig' },
+          { term: 'siebzig', description: 'Seventy (70)', audio: 'siebzig' },
+          { term: 'achtzig', description: 'Eighty (80)', audio: 'achtzig' },
+          { term: 'neunzig', description: 'Ninety (90)', audio: 'neunzig' },
+          { term: 'hundert', description: 'One hundred (100)', audio: 'hundert' }
+        ]
+      }
+    ]
+  },
+  'a1-time-1': {
+    title: 'Days of the Week',
+    introduction: 'In Germany, the week starts on Monday! Here are the days of the week.',
+    sections: [
+      {
+        title: 'Mon - Sun',
+        items: [
+          { term: 'Montag', description: 'Monday', audio: 'Montag' },
+          { term: 'Dienstag', description: 'Tuesday', audio: 'Dienstag' },
+          { term: 'Mittwoch', description: 'Wednesday (Literally: "Mid-week")', audio: 'Mittwoch' },
+          { term: 'Donnerstag', description: 'Thursday', audio: 'Donnerstag' },
+          { term: 'Freitag', description: 'Friday', audio: 'Freitag' },
+          { term: 'Samstag', description: 'Saturday', audio: 'Samstag' },
+          { term: 'Sonntag', description: 'Sunday', audio: 'Sonntag' }
+        ]
+      }
+    ]
   }
 };

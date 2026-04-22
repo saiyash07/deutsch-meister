@@ -8,6 +8,7 @@ const navItems = [
   { path: '/speaking', icon: '🎤', label: 'Speaking' },
   { path: '/writing', icon: '✍️', label: 'Writing' },
   { path: '/review', icon: '🔄', label: 'Review' },
+  { path: '/translator', icon: '⚡', label: 'Instant Translator' },
   { path: '/profile', icon: '👤', label: 'Profile' },
 ];
 

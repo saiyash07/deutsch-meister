@@ -89,14 +89,20 @@ export default function Roleplay({ progress }) {
         <button className="btn btn-primary btn-sm" onClick={endRoleplay}>End & Evaluate</button>
       </div>
 
-      <div className="roleplay-chat">
+      <div className="roleplay-chat" style={{ 
+        backgroundImage: `linear-gradient(rgba(15, 15, 35, 0.8), rgba(15, 15, 35, 0.8)), url(${selectedScenario.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        borderRadius: 'var(--radius-lg)'
+      }}>
         {messages.map((m, i) => (
           <div key={i} className={`chat-bubble ${m.role}`}>
             <div className="bubble-content">
               {m.content}
               {m.role === 'model' && (
                 <div className="bubble-actions">
-                  <PronunciationBtn text={m.content} size="small" />
+                  <PronunciationBtn text={m.content} gender="male" size="small" />
+                  <PronunciationBtn text={m.content} gender="female" size="small" />
                 </div>
               )}
             </div>

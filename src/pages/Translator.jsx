@@ -28,9 +28,17 @@ export default function Translator({ progress }) {
   }, [progress.apiKey, chat, targetLang]);
 
   useEffect(() => {
+    if (!input.trim()) {
+      setOutput('');
+      return;
+    }
+
     const timer = setTimeout(() => {
-      if (input) translate(input);
+      if (input.trim().length > 1) {
+        translate(input);
+      }
     }, 1500);
+    
     return () => clearTimeout(timer);
   }, [input, translate]);
 

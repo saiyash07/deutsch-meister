@@ -11,6 +11,7 @@ import Writing from './pages/Writing';
 import Review from './pages/Review';
 import Profile from './pages/Profile';
 import Auth from './pages/Auth';
+import Translator from './pages/Translator';
 import { useEffect } from 'react';
 import { loadVoices } from './utils/speech';
 
@@ -60,6 +61,7 @@ export default function App() {
           <Route path="/review" element={
             <Review progress={progress} addReviewWord={addReviewWord} removeReviewWord={removeReviewWord} />
           } />
+          <Route path="/translator" element={<Translator progress={progress} />} />
           <Route path="/profile" element={
             <Profile
               progress={progress}

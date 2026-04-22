@@ -43,6 +43,31 @@ export function speakGerman(text, gender = 'male') {
   });
 }
 
+export function speakEnglish(text) {
+  return new Promise((resolve) => {
+    if (!window.speechSynthesis) {
+      resolve();
+      return;
+    }
+    
+    window.speechSynthesis.cancel();
+    
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 1.0;
+    
+    const voices = window.speechSynthesis.getVoices();
+    const englishVoices = voices.filter(v => v.lang.startsWith('en'));
+    if (englishVoices.length > 0) {
+      utterance.voice = englishVoices.find(v => v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Premium')) || englishVoices[0];
+    }
+    
+    utterance.onend = () => resolve();
+    utterance.onerror = () => resolve();
+    window.speechSynthesis.speak(utterance);
+  });
+}
+
 // Preload voices
 export function loadVoices() {
   return new Promise((resolve) => {

@@ -105,8 +105,38 @@ If the input is English, translate to German. If German, translate to English. A
             </p>
           )}
           {aiResult && (
-            <div style={{ textAlign: 'left', marginTop: '16px', padding: '16px', background: 'var(--bg-glass)', borderRadius: 'var(--radius-md)', whiteSpace: 'pre-wrap', fontSize: '14px', lineHeight: 1.7 }}>
-              {aiResult}
+            <div style={{ marginTop: '16px', padding: '16px', background: 'var(--bg-glass)', borderRadius: 'var(--radius-md)', fontSize: '14px', lineHeight: 1.7 }}>
+              {(() => {
+                const lines = aiResult.split('\n');
+                const data = {};
+                lines.forEach(line => {
+                  const [key, ...val] = line.split(': ');
+                  if (key && val.length) data[key.trim()] = val.join(': ').trim();
+                });
+                return (
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', borderBottom: '1px solid var(--border)', paddingBottom: '8px' }}>
+                      <strong style={{ fontSize: '18px', color: 'var(--text-primary)' }}>{data.Word}</strong>
+                      <PronunciationBtn text={data.Word} gender="male" size="small" />
+                      <PronunciationBtn text={data.Word} gender="female" size="small" />
+                    </div>
+                    <div style={{ marginBottom: '8px' }}>
+                      <span style={{ color: 'var(--text-secondary)' }}>Translation: </span>
+                      <strong style={{ color: 'var(--text-primary)' }}>{data.Translation}</strong>
+                      <PronunciationBtn text={data.Translation} lang="en" size="small" />
+                    </div>
+                    {Object.entries(data).map(([key, val]) => {
+                      if (key === 'Word' || key === 'Translation' || !val) return null;
+                      return (
+                        <div key={key}>
+                          <span style={{ color: 'var(--text-secondary)' }}>{key}: </span>
+                          <span style={{ color: 'var(--text-primary)' }}>{val}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
             </div>
           )}
         </div>

@@ -30,7 +30,7 @@ export default function Translator({ progress }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (input) translate(input);
-    }, 800);
+    }, 1500);
     return () => clearTimeout(timer);
   }, [input, translate]);
 

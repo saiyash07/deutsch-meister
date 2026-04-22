@@ -9,6 +9,7 @@ const navItems = [
   { path: '/writing', icon: '✍️', label: 'Writing' },
   { path: '/review', icon: '🔄', label: 'Review' },
   { path: '/translator', icon: '⚡', label: 'Instant Translator' },
+  { path: '/roleplay', icon: '🎭', label: 'AI Roleplay' },
   { path: '/profile', icon: '👤', label: 'Profile' },
 ];
 

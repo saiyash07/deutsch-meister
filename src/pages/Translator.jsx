@@ -10,7 +10,7 @@ export default function Translator({ progress }) {
   const { chat } = useAI(progress.apiKey);
 
   const translate = useCallback(async (text) => {
-    if (!text.trim() || !progress.apiKey) {
+    if (!text.trim()) {
       setOutput('');
       return;
     }
@@ -56,14 +56,6 @@ export default function Translator({ progress }) {
         <h1 className="page-title">⚡ Instant Translator</h1>
         <p className="page-subtitle">Real-time AI-powered translation with pronunciation</p>
       </div>
-
-      {!progress.apiKey && (
-        <div className="card" style={{ marginBottom: '20px', border: '1px solid var(--orange)' }}>
-          <p style={{ color: 'var(--orange)', fontSize: '14px' }}>
-            ⚠️ Google Gemini API key is required for live translation. Please add it in your Profile.
-          </p>
-        </div>
-      )}
 
       <div className="translator-container">
         <div className="translator-panel">

@@ -89,11 +89,6 @@ export default function ChatBot({ apiKey, chatHistory, setChatHistory }) {
               <div style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '40px 20px' }}>
                 <div style={{ fontSize: '40px', marginBottom: '12px' }}>🇩🇪</div>
                 <p style={{ fontSize: '14px' }}>Hallo! I'm your German tutor. Ask me anything about German language!</p>
-                {!apiKey && (
-                  <p style={{ fontSize: '12px', color: 'var(--orange)', marginTop: '8px' }}>
-                    ⚠️ Set your Gemini API key in Profile to enable AI chat
-                  </p>
-                )}
               </div>
             )}
             

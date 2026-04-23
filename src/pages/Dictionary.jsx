@@ -27,7 +27,7 @@ export default function Dictionary({ progress, toggleFavoriteWord }) {
 
   // Live AI translation for words not in dictionary
   const translateWithAI = useCallback(async () => {
-    if (!query.trim() || !progress.apiKey) return;
+    if (!query.trim()) return;
     setAiLoading(true);
     const response = await chat(
       [{ role: 'user', content: query.trim() }],
@@ -95,15 +95,9 @@ If the input is English, translate to German. If German, translate to English. A
           <p style={{ fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '12px' }}>
             Word not in local dictionary.
           </p>
-          {progress.apiKey ? (
             <button className="btn btn-primary" onClick={translateWithAI} disabled={aiLoading}>
               {aiLoading ? '⏳ Translating...' : '🤖 Translate with AI'}
             </button>
-          ) : (
-            <p style={{ fontSize: '13px', color: 'var(--orange)' }}>
-              Set your Gemini API key in Profile to enable live translation.
-            </p>
-          )}
           {aiResult && (
             <div style={{ marginTop: '16px', padding: '16px', background: 'var(--bg-glass)', borderRadius: 'var(--radius-md)', fontSize: '14px', lineHeight: 1.7 }}>
               {(() => {

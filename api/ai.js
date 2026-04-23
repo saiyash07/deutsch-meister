@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   }
 
   const { messages, systemPrompt, type, image, prompt } = req.body;
-  const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1';
+  const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta';
   const model = 'gemini-1.5-flash'; // Fixed model for stability
 
   try {

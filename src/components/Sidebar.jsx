@@ -49,6 +49,9 @@ export default function Sidebar({ streak }) {
             <span className="streak-fire">🔥</span>
             <span>{streak || 0} day streak</span>
           </div>
+          <div className="sidebar-credit">
+            Made with ❤️ by <strong>Saiyash Poojari</strong>
+          </div>
         </div>
       </nav>
     </>

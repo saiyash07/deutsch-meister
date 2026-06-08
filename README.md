@@ -4,6 +4,32 @@ A modern, gamified, offline-first German language learning web application desig
 
 ---
 
+## 📸 Application Screenshots
+
+Here is a visual tour of **Deutsch Meister**:
+
+| 👤 Authentication Screen | 🏠 User Dashboard |
+|:---:|:---:|
+| ![Auth](screenshots/01_auth.png) | ![Dashboard](screenshots/02_dashboard.png) |
+
+| 📚 Learning Curriculum (A1 - C2) | 🎤 Pronunciation Practice (Speaking) |
+|:---:|:---:|
+| ![Learn](screenshots/03_learn.png) | ![Speaking](screenshots/04_speaking.png) |
+
+| ✍️ Multimodal Writing Analysis | 📖 Searchable Dictionary |
+|:---:|:---:|
+| ![Writing](screenshots/05_writing.png) | ![Dictionary](screenshots/06_dictionary.png) |
+
+| 🔄 Vocabulary Review | ⚡ Instant Translator |
+|:---:|:---:|
+| ![Review](screenshots/07_review.png) | ![Translator](screenshots/08_translator.png) |
+
+| 🎭 Interactive AI Roleplay | 👤 Profile & Settings |
+|:---:|:---:|
+| ![Roleplay](screenshots/09_roleplay.png) | ![Profile](screenshots/10_profile.png) |
+
+---
+
 ## 🛠️ Tech Stack & Architecture
 
 *   **Frontend Library:** React 19 (Hooks, Context, Custom hooks for state management)

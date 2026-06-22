@@ -403,24 +403,51 @@ export const lessonContent = {
   },
   'a1-time-3': {
     title: 'Telling Time (Uhrzeit)',
-    introduction: 'German has two ways to tell time: Official (24h) and Unofficial (12h).',
+    introduction: 'German has two ways to tell time: Official (24h) and Unofficial (12h). While the official time is straightforward, the unofficial "conversational" time has unique rules that trip up many learners!',
     sections: [
       {
         title: 'Official Time (24h)',
-        introduction: 'Used for TV, radio, and schedules. Very simple: [Hour] Uhr [Minutes].',
+        introduction: 'Used for schedules, news, and official notices. Very simple: [Hour] Uhr [Minutes]. It uses a 24-hour clock.',
         items: [
           { term: 'Es ist acht Uhr.', description: 'It is 8:00.', audio: 'Es ist acht Uhr' },
-          { term: 'Es ist acht Uhr zehn.', description: 'It is 8:10.', audio: 'Es ist acht Uhr zehn' }
+          { term: 'Es ist acht Uhr zehn.', description: 'It is 8:10.', audio: 'Es ist acht Uhr zehn' },
+          { term: 'Es ist zwanzig Uhr dreißig.', description: 'It is 20:30 (8:30 PM).', audio: 'Es ist zwanzig Uhr dreißig' }
         ]
       },
       {
-        title: 'Unofficial (The "German" Way)',
-        introduction: 'Used in conversation. Pay attention to "halb" (HALF TO) and "viertel" (quarter).',
+        title: 'Unofficial Time: The Basics (vor & nach)',
+        introduction: 'In everyday conversation, Germans use the 12-hour clock. We use "nach" (past/after) for minutes 1–29 and "vor" (to/before) for minutes 31–59.',
         items: [
-          { term: 'viertel nach acht', description: '8:15 (Quarter past 8)', audio: 'viertel nach acht' },
-          { term: 'viertel vor acht', description: '7:45 (Quarter to 8)', audio: 'viertel vor acht' },
-          { term: 'halb neun', description: '8:30 (HALF TO nine)', audio: 'halb neun' },
-          { term: 'zehn vor neun', description: '8:50 (Ten to 9)', audio: 'zehn vor neun' }
+          { term: 'fünf nach acht', description: '8:05 (five past eight)', audio: 'fünf nach acht' },
+          { term: 'zehn vor neun', description: '8:50 (ten to nine)', audio: 'zehn vor neun' },
+          { term: 'viertel nach acht', description: '8:15 (quarter past eight)', audio: 'viertel nach acht' },
+          { term: 'viertel vor acht', description: '7:45 (quarter to eight)', audio: 'viertel vor acht' }
+        ]
+      },
+      {
+        title: '⚠️ The Big Trap: "halb" (Half)',
+        introduction: 'This is the most common mistake for learners! In English, "half eight" means 8:30 (half-past eight). But in German, "halb" means "halfway TO the next hour". Think of it as "minus 30 minutes".',
+        items: [
+          { term: 'halb neun', description: '8:30 (Halfway to nine! NOT 9:30)', audio: 'halb neun' },
+          { term: 'halb zwei', description: '1:30 (Halfway to two! NOT 2:30)', audio: 'halb zwei' },
+          { term: 'halb zwölf', description: '11:30 (Halfway to twelve! NOT 12:30)', audio: 'halb zwölf' }
+        ]
+      },
+      {
+        title: '⏱️ Around the Half-Hour (vor halb / nach halb)',
+        introduction: 'When minutes are close to the half-hour, German time becomes double-relative! We count minutes before or after the half-hour.',
+        items: [
+          { term: 'fünf vor halb neun', description: '8:25 (Literally: "five before half-nine" - 5 minutes before 8:30)', audio: 'fünf vor halb neun' },
+          { term: 'fünf nach halb neun', description: '8:35 (Literally: "five after half-nine" - 5 minutes after 8:30)', audio: 'fünf nach halb neun' },
+          { term: 'zwei vor halb vier', description: '3:28 (2 minutes before 3:30)', audio: 'zwei vor halb vier' }
+        ]
+      },
+      {
+        title: '🇩🇪 Regional Variations (East & South Germany)',
+        introduction: 'If you travel to Berlin, Munich, or East Germany, you will hear a different way to express quarters. They see the hour as a progress bar:',
+        items: [
+          { term: 'viertel neun', description: '8:15 (Literally: "one-quarter of the 9th hour has passed")', audio: 'viertel neun' },
+          { term: 'dreiviertel neun', description: '8:45 (Literally: "three-quarters of the 9th hour have passed")', audio: 'dreiviertel neun' }
         ]
       }
     ]

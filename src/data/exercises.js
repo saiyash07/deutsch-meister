@@ -115,11 +115,16 @@ const exercises = {
     { type: 'listen', prompt: 'Type the month', audio: 'Oktober', answer: 'Oktober' },
   ],
   'a1-time-3': [
-    { type: 'mcq', prompt: '"Es ist drei Uhr" means...', options: ['It is 3 o\'clock', 'It is 30 minutes', 'It is the 3rd', 'It is 3 days'], answer: 0, audio: 'Es ist drei Uhr' },
+    { type: 'mcq', prompt: '"Es ist drei Uhr" means...', options: ['It is 3 o\'clock', 'It is 3:30', 'It is 15:00 only', 'It is 3 minutes past'], answer: 0, audio: 'Es ist drei Uhr' },
     { type: 'translate', prompt: 'It is 5 o\'clock', answer: 'Es ist fünf Uhr', audio: 'Es ist fünf Uhr' },
-    { type: 'mcq', prompt: '"Halb vier" means...', options: ['4:00', '3:30', '4:30', '3:45'], answer: 1, audio: 'halb vier' },
-    { type: 'fill', prompt: 'Es ist ___ Uhr (It is 12 o\'clock)', answer: 'zwölf' },
-    { type: 'mcq', prompt: '"Viertel nach zwei" means...', options: ['1:45', '2:15', '2:45', '1:15'], answer: 1, audio: 'Viertel nach zwei' },
+    { type: 'mcq', prompt: 'What time is "halb vier"?', options: ['3:30', '4:30', '4:00', '3:45'], answer: 0, audio: 'halb vier' },
+    { type: 'mcq', prompt: 'What does "halb elf" mean?', options: ['10:30', '11:30', '11:00', '10:45'], answer: 0 },
+    { type: 'mcq', prompt: 'How do you say 2:30 PM (informally) in German?', options: ['halb zwei', 'halb drei', 'zwei Uhr dreißig', 'halb vier'], answer: 1 },
+    { type: 'mcq', prompt: 'What time is "fünf vor halb neun"?', options: ['8:25', '8:35', '9:25', '7:25'], answer: 0, audio: 'fünf vor halb neun' },
+    { type: 'mcq', prompt: 'What time is "fünf nach halb sechs"?', options: ['5:35', '5:25', '6:35', '4:35'], answer: 0, audio: 'fünf nach halb sechs' },
+    { type: 'mcq', prompt: 'In Berlin, if someone says "dreiviertel zehn", what time is it?', options: ['9:45', '10:45', '9:15', '10:15'], answer: 0 },
+    { type: 'fill', prompt: 'Fill in the blank: 7:25 is "fünf vor halb ___"', answer: 'acht' },
+    { type: 'fill', prompt: 'Fill in the blank: 11:35 is "fünf nach halb ___"', answer: 'zwölf' }
   ],
   'a1-art-1': [
     { type: 'mcq', prompt: 'German has how many grammatical genders?', options: ['2', '3', '4', '1'], answer: 1 },
